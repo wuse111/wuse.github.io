@@ -18,7 +18,7 @@ def find_space(pages):
             "user-agent": "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50",
             'referer': 'https://space.bilibili.com/'
         }
-        res = requests.get("https://api.bilibili.com/x/space/navnum?mid=20165629&jsonp=jsonp&callback=__jp3",
+        res = requests.get("需要爬取的链接",
                            headers=headerss)
         page = math.ceil(int(re.search(r'"video":(.*?),', res.text).group(1)) / 30)
         start = 1
@@ -29,7 +29,7 @@ def find_space(pages):
     data_list = []
     for i in range(start, end):
         sleep(3)
-        url = f"https://api.bilibili.com/x/space/arc/search?mid=20165629&ps=30&tid=0&pn={i}&keyword=&order=pubdate&jsonp=jsonp"
+        url = "爬取的页数的链接"
         try:
             res = requests.get(url, headers=headers).json()
             v_list = res['data']['list']['vlist']
@@ -98,7 +98,7 @@ if __name__ == '__main__':
     # bv_content("test")
     files = input("输入保存文件名（留空为默认文件名）")
     if files == "":
-        files = "共青团中央.xls"
+        files = "默认文件名"
     input_page = input("输入要提取的页数（例：1-30）：")
     page1 = ""
     if input_page == "":
